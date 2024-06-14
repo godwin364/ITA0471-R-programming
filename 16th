@@ -1,0 +1,15 @@
+# Create a 5 x 4 matrix
+mat1 <- matrix(1:20, nrow = 5, ncol = 4)
+print(mat1)
+
+# Create a 3 x 3 matrix with labels and fill by rows
+row_labels <- c("row1", "row2", "row3")
+col_labels <- c("col1", "col2", "col3")
+mat2 <- matrix(1:9, nrow = 3, ncol = 3, dimnames = list(row_labels, col_labels), byrow = TRUE)
+print(mat2)
+
+# Create a 2 x 2 matrix with labels and fill by columns
+row_labels <- c("row1", "row2")
+col_labels <- c("col1", "col2")
+mat3 <- matrix(1:4, nrow = 2, ncol = 2, dimnames = list(row_labels, col_labels), byrow = FALSE)
+print(mat3)
