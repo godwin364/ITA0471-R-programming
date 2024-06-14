@@ -1,0 +1,28 @@
+# Load the iris dataset
+data(iris)
+
+# Split the dataset into training and testing subsets
+set.seed(123)  # Set a seed for reproducibility
+train_indices <- sample(nrow(iris), 0.8 * nrow(iris))
+train_data <- iris[train_indices, ]
+test_data <- iris[-train_indices, ]
+
+# Load the nnet package
+library(nnet)
+
+# Create the multinomial logistic regression model
+model <- multinom(Species ~ Petal.Width + Petal.Length, data = train_data)
+
+# Make predictions on the test data
+test_predictions <- predict(model, newdata = test_data, type = "prob")
+
+# Convert predictions to factor levels
+predicted_species <- factor(levels(test_data$Species)[apply(test_predictions, 1, which.max)],
+                             levels = levels(test_data$Species))
+
+# Create a confusion matrix
+library(caret)
+confusionMatrix(test_data$Species, predicted_species)
+
+# Print the model summary
+summary(model)
