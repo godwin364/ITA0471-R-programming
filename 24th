@@ -1,0 +1,7 @@
+# Create a sequence of even integers greater than 50
+seq_values <- seq(52, 62, by = 2)
+
+# Create a 5x3 array from the sequence
+arr <- array(seq_values, dim = c(5, 3))
+
+print(arr)
