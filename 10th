@@ -1,0 +1,6 @@
+
+vec<-c(3,1,5,6,4,0,9,8)
+max_value<-max(vec)
+min_value<-min(vec)
+print(paste("maximum value:",max_value))
+print(paste("minimum value:",min_value))
